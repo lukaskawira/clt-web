@@ -1,4 +1,4 @@
-<ul ngbNav #nav="ngbNav" class="nav-tabs">
+<ul #nav="ngbNav" class="nav-tabs" ngbNav>
   <li ngbNavItem="1">
     <a ngbNavLink>Home</a>
     <ng-template ngbNavContent>
@@ -15,6 +15,12 @@
     <a ngbNavLink>Contact</a>
     <ng-template ngbNavContent>
       <app-contact></app-contact>
+    </ng-template>
+  </li>
+  <li ngbNavItem="4">
+    <a ngbNavLink>Leathers</a>
+    <ng-template ngbNavContent>
+      <app-leather></app-leather>
     </ng-template>
   </li>
 </ul>

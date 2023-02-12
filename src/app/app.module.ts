@@ -7,8 +7,12 @@ import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { FooterComponent } from './footer/footer.component';
-import { AboutUsComponent } from './about-us/about-us.component';
+import {FooterComponent} from './footer/footer.component';
+import {AboutUsComponent} from './about-us/about-us.component';
+import {LeatherProductComponent} from './leather/leather-product/leather-product.component';
+import {LeatherComponent} from './leather/leather.component';
+import {GetAQuoteComponent} from './contact/get-a-quote/get-a-quote.component';
+import {ContactFormComponent} from './contact/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ContactComponent,
     NavbarComponent,
     FooterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    LeatherProductComponent,
+    LeatherComponent,
+    GetAQuoteComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
