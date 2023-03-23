@@ -1,0 +1,126 @@
+.carousel-image-fit {
+  width: 100%;
+  height: calc(100vh - var(--navbar-height));
+  object-fit: cover;
+}
+
+.carousel-caption {
+  height: 100%;
+  justify-content: center;
+
+  .carousel-inner-caption {
+    padding-top: 3rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.content-wrapper {
+  width: 100%;
+
+  .about-us-sneak {
+    width: inherit;
+    display: flex;
+    min-height: calc(100vh - var(--navbar-height));
+
+    .about-us-text {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 5rem;
+      padding-right: 2rem;
+
+      p {
+        text-align: justify;
+      }
+    }
+
+    .about-us-image {
+      width: 50%;
+
+      .about-us-image-wrapper {
+        width: 100%;
+        height: 100%;
+
+        .about-us-image-fit {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: grayscale(1)brightness(70%);
+        }
+      }
+    }
+  }
+
+  .product-sneak {
+    padding-top: 5rem;
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+
+    .product-coin {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .product-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        filter: brightness(75%);
+      }
+
+      .product-text {
+        z-index: 1;
+        width: 45%;
+        color: white;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .content-wrapper {
+    padding: 0 2.5rem;
+
+    .about-us-sneak {
+      flex-direction: row;
+
+      .about-us-text {
+        width: 100% !important;
+      }
+
+      .about-us-image {
+        width: 100% !important;
+        padding-left: 0 !important;
+        margin-bottom: .8rem;
+
+        .about-us-image-wrapper {
+
+          .about-us-image-fit {
+            height: 200px;
+          }
+        }
+      }
+    }
+
+    .product-sneak {
+      flex-direction: column;
+      align-items: center;
+
+      .product-coin {
+        width: 250px;
+        height: 250px;
+      }
+    }
+  }
+}

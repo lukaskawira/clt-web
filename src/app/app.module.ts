@@ -1,36 +1,41 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {ContactComponent} from './contact/contact.component';
-import {NavbarComponent} from './navbar/navbar.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NavigationComponent} from './navigation/navigation.component';
+import {HomeComponent} from './home/home.component';
 import {FooterComponent} from './footer/footer.component';
-import {AboutUsComponent} from './about-us/about-us.component';
-import {LeatherProductComponent} from './leather/leather-product/leather-product.component';
-import {LeatherComponent} from './leather/leather.component';
-import {GetAQuoteComponent} from './contact/get-a-quote/get-a-quote.component';
-import {ContactFormComponent} from './contact/contact-form/contact-form.component';
+import {EmptyRouteComponent} from './navigation/empty-route/empty-route.component';
+import {AboutComponent} from './about/about.component';
+import {ContactComponent} from './contact/contact.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LayoutModule} from "@angular/cdk/layout";
+import {ProductsComponent} from './products/products.component';
+import {OurLeathersComponent} from './products/our-leathers/our-leathers.component';
+
+const declaredModules = [
+  NavigationComponent,
+  HomeComponent,
+  FooterComponent,
+  EmptyRouteComponent,
+  AboutComponent,
+  ContactComponent,
+  ProductsComponent,
+  OurLeathersComponent,
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ContactComponent,
-    NavbarComponent,
-    FooterComponent,
-    AboutUsComponent,
-    LeatherProductComponent,
-    LeatherComponent,
-    GetAQuoteComponent,
-    ContactFormComponent
+    declaredModules
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    LayoutModule,
+    NgbModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

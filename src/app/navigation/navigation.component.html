@@ -1,0 +1,109 @@
+<div>
+  <ng-container *ngIf="renderMobileView; then mobileNavBar; else desktopNavBar"></ng-container>
+</div>
+
+<ng-template #desktopNavBar>
+  <div class="navbar-content">
+    <div class="logo-container">
+      <a (click)="setActive(0)" class="logo" routerLink="/">
+        <img alt="CV Cisarua Logo" src="../../assets/icons/cisaruaLogoSVGColored.svg" class="logo-image"/>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div *ngFor="let item of navigationItems">
+        <ng-container *ngIf="item.subItems.length == 0; then noSubItems; else hasSubItems"></ng-container>
+        <ng-template #noSubItems>
+          <div class="btn btn-link">
+            <a (click)="setActive(item.id)" [class.link-active]="active==item.id"
+               class="navbar-menu-item-link text-nav"
+               routerLink="{{ item.link }}">
+              {{ item.name }}
+            </a>
+          </div>
+        </ng-template>
+        <ng-template #hasSubItems>
+          <div class="dropdown">
+            <button aria-expanded="false" class="btn btn-link dropdown-toggle edit-caret-styling"
+                    data-bs-toggle="dropdown"
+                    type="button">
+              <a class="navbar-menu-item-link text-nav">
+                {{ item.name }}
+              </a>
+            </button>
+            <ul class="dropdown-menu">
+              <li *ngFor="let subItem of item.subItems">
+                <button class="dropdown-item btn btn-link">
+                  <a (click)="setActive(subItem.id)" [class.link-active]="active==subItem.id"
+                     class="navbar-menu-item-link text-sub-nav"
+                     href="{{ subItem.link }}">
+                    {{ subItem.name }}
+                  </a>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #mobileNavBar>
+  <div class="mobile-navbar-wrapper">
+    <div class="mobile-navbar-content">
+      <div class="hamburger-menu-container">
+        <button class="hamburger hamburger--collapse" type="button" (click)="toggleSidebar()"
+                [ngClass]="activeHamburger ? 'is-active' : ''"
+                aria-label="Hamburger toggle navigation">
+        <span class="hamburger-box">
+          <span class="hamburger-inner">
+          </span>
+        </span>
+        </button>
+      </div>
+      <div class="logo-container">
+        <a class="logo" routerLink="/">
+          <img alt="CV Cisarua Logo" src="../../assets/icons/cisaruaLogoSVGColored.svg" class="logo-image"/>
+        </a>
+      </div>
+    </div>
+    <div class="collapse-left" [ngClass]="activeHamburger ? 'show-sidebar' : ''">
+      <div class="mobile-menu-content">
+        <div *ngFor="let item of navigationItems" class="mobile-menu-wrapper">
+          <div class="w-100 mobile-menu-items">
+            <ng-container *ngIf="item.subItems.length == 0; then noSubItems; else hasSubItems"></ng-container>
+            <ng-template #noSubItems>
+              <div class="mobile-menu-routes">
+                <a (click)="setActive(item.id)" [class.link-active]="active==item.id"
+                   class="text-decoration-none text-nav-mobile text-color-green"
+                   routerLink="{{ item.link }}">
+                  {{ item.name }}
+                </a>
+              </div>
+            </ng-template>
+            <ng-template #hasSubItems>
+              <div class="mobile-menu-routes">
+                <a class="text-decoration-none text-nav-mobile text-color-green add-caret"
+                   role="button"
+                   (click)="collapse.toggle()"
+                   [attr.aria-expanded]="!mobileNavCollapse"
+                   aria-controls="subItemCollapse">
+                  {{ item.name }}
+                </a>
+              </div>
+              <div #collapse="ngbCollapse" [(ngbCollapse)]="mobileNavCollapse" id="subItemCollapse">
+                <div *ngFor="let subItem of item.subItems" class="mobile-menu-sub-routes">
+                  <a (click)="setActive(subItem.id)" [class.link-active]="active==subItem.id"
+                     class="text-decoration-none text-sub-nav-mobile text-color-dark-2"
+                     routerLink="{{ subItem.link }}">
+                    {{ subItem.name }}
+                  </a>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

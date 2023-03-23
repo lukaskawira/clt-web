@@ -1,1 +1,116 @@
-<p>home works!</p>
+<div class="home-wrapper" dir="ltr">
+  <div class="carousel">
+    <ngb-carousel [interval]="interval" [pauseOnFocus]="pauseOnFocus" [pauseOnHover]="pauseOnHover"
+                  [showNavigationArrows]="showNavigationArrows">
+      <ng-template ngbSlide>
+        <div class="carousel-img-wrapper">
+          <img alt="Angular Carousel 1" class="d-block carousel-image-fit" src="../../assets/carousel/1.jpg">
+        </div>
+        <div class="carousel-caption d-none d-md-flex">
+          <div class="carousel-inner-caption">
+            <h1>CV Cisarua</h1>
+            <p>
+              Established in 1949, we have since continued family traditions of leather craftsmanship.
+              From the applications of old-fashion tanning know-how to the adoption of modern leather technology.
+            </p>
+            <p>We have begun to oversee substantial growth in the demand of our products both regionally and globally.
+              The profound knowledge of leather and its applications that we have preciously gained over the years have
+              given us the trust of many of our partners.
+            </p>
+            <div>
+              <ng-container *ngTemplateOutlet="readMoreButton"></ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="carousel-img-wrapper">
+          <img alt="Angular Carousel 2" class="d-block carousel-image-fit" src="../../assets/carousel/2.jpg">
+        </div>
+        <div class="carousel-caption d-none d-md-flex">
+          <div class="carousel-inner-caption">
+            <h1>Image 2</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et consectetur ante, sit amet euismod erat.
+              Proin id neque lacinia, convallis nisi ut, malesuada augue.</p>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="carousel-img-wrapper">
+          <img alt="Angular Carousel 2" class="d-block carousel-image-fit" src="../../assets/carousel/3.jpg">
+        </div>
+        <div class="carousel-caption d-none d-md-flex">
+          <div class="carousel-inner-caption">
+            <h1>Image 3</h1>
+            <p>Suspendisse quis sodales tellus, et malesuada eros. Maecenas velit est, dapibus quis odio quis, porta
+              condimentum tortor. sVestibulum nec sapien elit.</p>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="content-wrapper">
+    <div class="about-us-sneak" snapscroll="">
+      <div class="about-us-text">
+        <h1>
+          <span class="text-color-dark-1 font-weight-700">74 Years of Trust</span>
+        </h1>
+        <div *ngIf="renderMobileView" class="about-us-image">
+          <ng-container *ngTemplateOutlet="aboutUsSneakImage"></ng-container>
+        </div>
+        <p class="text-paragraph-head">
+          We have since continued family traditions of leather craftsmanship. From the applications of old-fashion
+          tanning know-how to the adoption of modern leather technology.
+        </p>
+        <p class="text-paragraph-head">
+          We have begun to oversee substantial growth in the demand of our products both regionally and globally. The
+          profound knowledge of leather and its applications that we have preciously gained over the years have given us
+          the trust of many of our partners.
+        </p>
+        <p class="text-paragraph-inner">
+          Situated in the heart of the island of West Java, our facility is among the leading modern facilities in
+          Indonesia. With constant supply of raw materials from our reputable local and overseas suppliers.
+        </p>
+        <p class="text-paragraph-inner">
+          This demonstrates our strong and long-term supplier relationships and our ability to provide you with the
+          regions’ finest leather.
+        </p>
+        <div>
+          <ng-container *ngTemplateOutlet="readMoreButton"></ng-container>
+        </div>
+      </div>
+      <div *ngIf="!renderMobileView" class="about-us-image">
+        <ng-container *ngTemplateOutlet="aboutUsSneakImage"></ng-container>
+      </div>
+    </div>
+    <div class="product-sneak">
+      <div *ngFor="let product of products">
+        <div class="product-coin">
+          <img src="{{ product.imageSrc }}" alt="{{ product.imageAlt }}" class="product-image">
+          <div class="product-text">
+            <p class="text-info-title pb-2 mb-2 border-bottom">{{ product.title }}</p>
+            <p class="text-info-description">{{ product.description }}</p>
+            <ng-container *ngTemplateOutlet="learnMoreButton"></ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #readMoreButton>
+  <button class="btn btn-green" (click)="onReadMoreClick()">Read More</button>
+</ng-template>
+
+<ng-template #learnMoreButton>
+  <button class="btn btn-outline-light" (click)="onLearnMoreClick()">Learn More</button>
+</ng-template>
+
+<ng-template #aboutUsSneakImage>
+  <div class="about-us-image-wrapper">
+    <img src="../../assets/images/home/tanneryWorkshop.jpg" class="about-us-image-fit"
+         alt="Cisarua Leather Tanner, South East Asia biggest leather tannery">
+  </div>
+</ng-template>
+
+

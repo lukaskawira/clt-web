@@ -2,8 +2,9 @@
   "database": {
     "rules": "database.rules.json"
   },
+
   "hosting": {
-    "site": "cisarualeathertannery",
+    "site": "cisarualeatherr",
     "public": "dist/cisarua-leather-web",
     "ignore": [
       "firebase.json",

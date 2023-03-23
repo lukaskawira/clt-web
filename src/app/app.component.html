@@ -1,6 +1,14 @@
-<div class="content-wrapper">
+<div class="content-wrapper" [ngClass]="activeHamburger ? 'position-fixed' : ''">
   <div class="navbar-wrapper">
-    <app-navbar></app-navbar>
+    <app-navigation></app-navigation>
+  </div>
+  <div class="outlet-wrapper mb-5">
+    <div class="content-blocker" [ngClass]="activeHamburger ? 'show' : ''" (click)="toggleHamburger()">
+      <div class="close-button">
+        <i class="bi bi-x"></i>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
   </div>
   <div class="footer-wrapper">
     <app-footer></app-footer>
