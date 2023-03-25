@@ -23,5 +23,6 @@ export class AppService {
   toggleHamburgerVisibility(): void {
     this.hamburgerVisibilityChange.next(!this.isHamburgerActive);
   }
+
   //#endregion
 }

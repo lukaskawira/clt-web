@@ -50,7 +50,7 @@
     </ngb-carousel>
   </div>
   <div class="content-wrapper">
-    <div class="about-us-sneak" snapscroll="">
+    <div class="about-us-sneak">
       <div class="about-us-text">
         <h1>
           <span class="text-color-dark-1 font-weight-700">74 Years of Trust</span>
@@ -84,14 +84,12 @@
       </div>
     </div>
     <div class="product-sneak">
-      <div *ngFor="let product of products">
-        <div class="product-coin">
-          <img src="{{ product.imageSrc }}" alt="{{ product.imageAlt }}" class="product-image">
-          <div class="product-text">
-            <p class="text-info-title pb-2 mb-2 border-bottom">{{ product.title }}</p>
-            <p class="text-info-description">{{ product.description }}</p>
-            <ng-container *ngTemplateOutlet="learnMoreButton"></ng-container>
-          </div>
+      <div *ngFor="let product of products" class="product-card">
+        <img src="{{ product.imageSrc }}" alt="{{ product.imageAlt }}" class="product-image">
+        <div class="product-text">
+          <p class="text-info-title pb-2 mb-2 border-bottom">{{ product.title }}</p>
+          <p class="text-info-description">{{ product.description }}</p>
+          <ng-container *ngTemplateOutlet="learnMoreButton"></ng-container>
         </div>
       </div>
     </div>
