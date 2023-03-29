@@ -80,6 +80,7 @@ export class NavigationComponent implements OnInit {
 
   //#region @EventHandler
   setActive(num: number): void {
+    window.scrollTo(0, 0);
     this.active = num;
     if (this.renderMobileView) {
       this.toggleSidebar();

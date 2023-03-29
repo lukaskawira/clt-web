@@ -11,6 +11,7 @@
     z-index: 1000;
     position: fixed;
     background-color: #FFF;
+    transition: all 0.3s ease-in-out;
   }
 
   .outlet-wrapper {
@@ -48,6 +49,11 @@
 .show {
   right: -75vw;
   opacity: 0.6;
+}
+
+.nav-bar-smoked {
+  background-color: var(--color-smokey-white) !important;
+  opacity: 0.95;
 }
 
 @media only screen and (max-width: 1024px) {

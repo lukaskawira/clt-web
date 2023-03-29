@@ -1,21 +1,23 @@
 <div class="home-wrapper" dir="ltr">
   <div class="carousel">
     <ngb-carousel [interval]="interval" [pauseOnFocus]="pauseOnFocus" [pauseOnHover]="pauseOnHover"
-                  [showNavigationArrows]="showNavigationArrows">
+                  [showNavigationArrows]="renderMobileView">
       <ng-template ngbSlide>
         <div class="carousel-img-wrapper">
           <img alt="Angular Carousel 1" class="d-block carousel-image-fit" src="../../assets/carousel/1.jpg">
         </div>
-        <div class="carousel-caption d-none d-md-flex">
+        <div class="carousel-caption d-flex">
           <div class="carousel-inner-caption">
-            <h1>CV Cisarua</h1>
-            <p>
-              Established in 1949, we have since continued family traditions of leather craftsmanship.
-              From the applications of old-fashion tanning know-how to the adoption of modern leather technology.
+            <p class="carousel-text-title">
+              CV
+              <span class="text-color-green">
+                Cisarua
+              </span>
             </p>
-            <p>We have begun to oversee substantial growth in the demand of our products both regionally and globally.
-              The profound knowledge of leather and its applications that we have preciously gained over the years have
-              given us the trust of many of our partners.
+            <p class="carousel-text-content">
+              Established in 1949, CV. Cisarua is an Indonesian leather tannery that played a pivotal role in the
+              domestic production of mid to high-end crash and finish leather, establishing us as one of the pioneers of
+              in-house leather manufacturing in the country.
             </p>
             <div>
               <ng-container *ngTemplateOutlet="readMoreButton"></ng-container>
@@ -27,23 +29,44 @@
         <div class="carousel-img-wrapper">
           <img alt="Angular Carousel 2" class="d-block carousel-image-fit" src="../../assets/carousel/2.jpg">
         </div>
-        <div class="carousel-caption d-none d-md-flex">
+        <div class="carousel-caption d-flex">
           <div class="carousel-inner-caption">
-            <h1>Image 2</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et consectetur ante, sit amet euismod erat.
-              Proin id neque lacinia, convallis nisi ut, malesuada augue.</p>
+            <p class="carousel-text-title">
+              <span class="text-color-green">
+                Profound Knowledge
+              </span>
+              in Leather
+            </p>
+            <p class="carousel-text-content">
+              Since our tannery's inception, we have remained steadfast in our commitment to preserving and applying
+              traditional leather craftsmanship techniques.
+            </p>
+            <div>
+              <ng-container *ngTemplateOutlet="readMoreButton"></ng-container>
+            </div>
           </div>
         </div>
       </ng-template>
       <ng-template ngbSlide>
         <div class="carousel-img-wrapper">
-          <img alt="Angular Carousel 2" class="d-block carousel-image-fit" src="../../assets/carousel/3.jpg">
+          <img alt="Angular Carousel 2" class="d-block carousel-image-fit" src="../../assets/carousel/3.jpeg">
         </div>
-        <div class="carousel-caption d-none d-md-flex">
+        <div class="carousel-caption d-flex">
           <div class="carousel-inner-caption">
-            <h1>Image 3</h1>
-            <p>Suspendisse quis sodales tellus, et malesuada eros. Maecenas velit est, dapibus quis odio quis, porta
-              condimentum tortor. sVestibulum nec sapien elit.</p>
+            <p class="carousel-text-title">
+              Quality and
+              <span class="text-color-green">
+                Environmental
+              </span>
+              Policies
+            </p>
+            <p class="carousel-text-content">
+              Our company consistently strives to deliver top-notch products while simultaneously prioritizing
+              responsible waste management practices.
+            </p>
+            <div>
+              <ng-container *ngTemplateOutlet="readMoreButton"></ng-container>
+            </div>
           </div>
         </div>
       </ng-template>
@@ -59,21 +82,24 @@
           <ng-container *ngTemplateOutlet="aboutUsSneakImage"></ng-container>
         </div>
         <p class="text-paragraph-head">
-          We have since continued family traditions of leather craftsmanship. From the applications of old-fashion
-          tanning know-how to the adoption of modern leather technology.
+          Over the years, our expertise and track record of success in the leather industry have earned us more than 100
+          partners and clients from all corners of Indonesia and around the globe, including government institutions,
+          automotive manufacturers, and apparel companies.
         </p>
         <p class="text-paragraph-head">
-          We have begun to oversee substantial growth in the demand of our products both regionally and globally. The
-          profound knowledge of leather and its applications that we have preciously gained over the years have given us
-          the trust of many of our partners.
+          By combining modern technological advancements with traditional leather crafting techniques, we have
+          experienced significant growth in the demand for our leather products both domestically and in international
+          markets.
         </p>
         <p class="text-paragraph-inner">
-          Situated in the heart of the island of West Java, our facility is among the leading modern facilities in
-          Indonesia. With constant supply of raw materials from our reputable local and overseas suppliers.
+          Our state-of-the-art facility, located in the heart of West Java, is one of the premier modern facilities in
+          Indonesia. Thanks to a reliable supply of raw materials from reputable local and overseas suppliers, we have
+          been able to maintain operations while consistently satisfying our past clients and present partners.
         </p>
         <p class="text-paragraph-inner">
-          This demonstrates our strong and long-term supplier relationships and our ability to provide you with the
-          regions’ finest leather.
+          Our aim is not only to satisfy our customers' needs with our high-quality products, but we also prioritize
+          compliance with environmental regulations and strive for energy and resource conservation, waste reduction,
+          and recycling.
         </p>
         <div>
           <ng-container *ngTemplateOutlet="readMoreButton"></ng-container>
@@ -93,11 +119,21 @@
         </div>
       </div>
     </div>
+    <div class="banner">
+      <div class="banner-image"></div>
+      <div class="banner-text">
+        <p class="text-sub font-weight-700 text-color-white text-align-center">
+          Crafting
+          <span class="text-color-green">timeless quality </span>
+          through leather mastery.
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 
 <ng-template #readMoreButton>
-  <button class="btn btn-green" (click)="onReadMoreClick()">Read More</button>
+  <button class="btn btn-green" (click)="onReadMoreClick()" *ngIf="!renderMobileView">Read More</button>
 </ng-template>
 
 <ng-template #learnMoreButton>
@@ -107,7 +143,7 @@
 <ng-template #aboutUsSneakImage>
   <div class="about-us-image-wrapper">
     <img src="../../assets/images/home/tanneryWorkshop.jpg" class="about-us-image-fit"
-         alt="Cisarua Leather Tanner, South East Asia biggest leather tannery">
+         alt="Cisarua Leather Tanner, South East Asian biggest leather tannery">
   </div>
 </ng-template>
 

@@ -1,5 +1,5 @@
 <div class="content-wrapper" [ngClass]="activeHamburger ? 'position-fixed' : ''">
-  <div class="navbar-wrapper">
+  <div class="navbar-wrapper" [ngClass]="over500Scroll ? 'nav-bar-smoked' : ''">
     <app-navigation></app-navigation>
   </div>
   <div class="outlet-wrapper mb-5">

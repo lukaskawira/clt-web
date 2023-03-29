@@ -19,7 +19,6 @@ export class HomeComponent {
   interval = 5000;
   pauseOnFocus = true;
   pauseOnHover = true;
-  showNavigationArrows = false;
   images: CarouselImages[] = [
     {
       imageSrc: '../../assets/carousel/1.jpg',
@@ -34,7 +33,7 @@ export class HomeComponent {
       carouselText: ""
     },
     {
-      imageSrc: '../../assets/carousel/3.jpg',
+      imageSrc: '../../assets/carousel/3.jpeg',
       imageAlt: 'A Pair of Brown Oxford Shoes on Black Surface',
       carouselTitle: 'CV Cisarua',
       carouselText: ""
